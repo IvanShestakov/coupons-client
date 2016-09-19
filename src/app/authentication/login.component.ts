@@ -7,11 +7,13 @@ import { User, userType } from '../shared/user';
 })
 export class LoginComponent {
 
-  user = new User("Admin","1234", userType.Admin);
+  user = new User();
   submitted = false;
-  onSubmit() { this.submitted = true; }
-  // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.user); }
 
-  msg = "test";
+  onSubmit() { this.submitted = true; }
+
+  types =  Object.keys(userType);
+  // TODO: Remove this when we're done
+  //get diagnostic() { return JSON.stringify(this.user); }
+
  }

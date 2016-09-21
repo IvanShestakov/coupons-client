@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { User, userType } from '../shared/user';
+import { AuthenticationService } from './authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './login.component.html',
@@ -9,11 +11,19 @@ export class LoginComponent {
 
   user = new User();
   submitted = false;
+  //Debugging
+  msg = JSON.stringify(this.user);
+  constructor( private authService: AuthenticationService,
+              private router: Router) {}
 
-  onSubmit() { this.submitted = true; }
+  onSubmit(user:User) { 
+    this.authService.login(this.user).subscribe((result) => {
+      if (result) {
+        this.router.navigate([user.type.toString().toLowerCase()])
+      }
+    });
+   }
 
   types =  Object.keys(userType);
-  // TODO: Remove this when we're done
-  //get diagnostic() { return JSON.stringify(this.user); }
 
  }

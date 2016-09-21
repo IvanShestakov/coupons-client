@@ -1,4 +1,4 @@
-export enum userType {Admin, Company, Customer}
+export enum userType {ADMIN, COMPANY, CUSTOMER}
 
 export class User {
     username: string;

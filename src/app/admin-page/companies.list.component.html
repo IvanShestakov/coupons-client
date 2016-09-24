@@ -1,0 +1,28 @@
+<ul class="companies">
+  <li *ngFor="let company of companies" (click)="onSelect(company)"
+      [class.selected]="company === selectedCompany">
+    <span class="badge">{{company.id}}</span>
+    <span>{{company.compName}}</span>
+    <button class="delete"
+      (click)="delete(company); $event.stopPropagation()">x</button>
+  </li>
+
+<div>
+      <h2>Create new Company</h2>
+        <label>Company Name: </label>
+          <input [(ngModel)]="newCompany.compName" placeholder="Company Name" />
+        <label>CompanyEmail: </label>
+          <input [(ngModel)]="newCompany.email" placeholder="Company Email" />
+        <label>Password:</label> 
+          <input type="password" [(ngModel)]="newCompany.password" />
+        <button (click)="add(newCompany); newCompany.compName.value=''">
+        Save
+        </button>
+</div>
+
+<div *ngIf="selectedCompany">
+  <h2>
+    {{selectedCompany.compName | uppercase}} is my company
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>

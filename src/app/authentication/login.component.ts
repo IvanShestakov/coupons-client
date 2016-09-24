@@ -12,15 +12,16 @@ export class LoginComponent {
   user = new User();
   submitted = false;
   //Debugging
-  msg = JSON.stringify(this.user);
+  msg = ""
   constructor( private authService: AuthenticationService,
               private router: Router) {}
 
-  onSubmit(user:User) { 
+  onSubmit(user: User) { 
     this.authService.login(this.user).subscribe((result) => {
       if (result) {
         this.router.navigate([user.type.toString().toLowerCase()])
       }
+      this.msg = "Failed to login";
     });
    }
 

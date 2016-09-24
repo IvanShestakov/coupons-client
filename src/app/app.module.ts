@@ -11,6 +11,8 @@ import { AdminPageComponent } from './admin-page/admin.page.component';
 import { CustomerPageComponent } from './customer-page/customer.page.component';
 import { CompanyPageComponent } from './company-page/company.page.component';
 import { AuthenticationService} from './authentication/authentication.service';
+import { CompanyService } from './admin-page/company.service';
+import { CompaniesListComponent } from './admin-page/companies.list.component';
 
 @NgModule({
   imports: [
@@ -24,9 +26,10 @@ import { AuthenticationService} from './authentication/authentication.service';
     LoginComponent,
     AdminPageComponent,
     CustomerPageComponent,
-    CompanyPageComponent
+    CompanyPageComponent,
+    CompaniesListComponent
   ],
-  providers: [ AuthenticationService ],
+  providers: [ AuthenticationService, CompanyService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

@@ -3,9 +3,14 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { User } from '../shared/user';
 
+import { Observable } from 'rxjs'
+
 @Injectable()
 export class AuthenticationService {
   private loggedIn = false;
+  private serverURL = 'http://localhost:8080/coupon-management/';
+  private loginPath = 'webapi/login';
+  private logoutPath = 'webapi/logout';
 
   constructor(private http: Http) {
     this.loggedIn = !!localStorage.getItem('auth_user');
@@ -18,22 +23,24 @@ export class AuthenticationService {
 
     return this.http
       .post(
-        'webapi/login', 
-        JSON.stringify( user ), 
-        { headers }
-      )
-      .map(res => res.json())
+      this.serverURL.concat(this.loginPath),
+      JSON.stringify(user),
+      { headers })
       .map((res) => {
-        if (res.success) {
+        if (res.status = 204) {
           localStorage.setItem('auth_user', JSON.stringify({ user }));
           this.loggedIn = true;
+          return true;
         }
-
-        return res.success;
+        else return false;
       });
   }
   
   logout() {
+    this.http
+    .post(
+      this.serverURL.concat(this.logoutPath),
+      {});
     localStorage.removeItem('auth_user');
     this.loggedIn = false;
   }

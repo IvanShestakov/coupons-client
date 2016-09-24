@@ -1,0 +1,16 @@
+
+    <h2>Company Details</h2>
+    <div class="items">
+        <span class="badge">{{company.id}}</span>
+        <span>{{company.compName}}</span>
+    </div>
+        <div>
+        <label>email: </label>
+        <input [(ngModel)]="company.email" placeholder="email" />
+    </div>
+    <div>
+        <label>password: </label>
+        <input [(ngModel)]="company.password" placeholder="password" />
+    </div>
+    <button (click)="cancel()">Cancel</button>
+    <button (click)="save(company)">Save</button>

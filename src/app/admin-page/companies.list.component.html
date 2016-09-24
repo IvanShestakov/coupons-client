@@ -21,8 +21,5 @@
 </div>
 
 <div *ngIf="selectedCompany">
-  <h2>
-    {{selectedCompany.compName | uppercase}} is my company
-  </h2>
-  <button (click)="gotoDetail()">View Details</button>
+  <company-details [company]="selectedCompany"></company-details>
 </div>

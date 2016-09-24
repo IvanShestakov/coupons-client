@@ -13,6 +13,7 @@ import { CompanyPageComponent } from './company-page/company.page.component';
 import { AuthenticationService} from './authentication/authentication.service';
 import { CompanyService } from './admin-page/company.service';
 import { CompaniesListComponent } from './admin-page/companies.list.component';
+import { CompanyDetailsComponent } from './admin-page/company.details.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { CompaniesListComponent } from './admin-page/companies.list.component';
     AdminPageComponent,
     CustomerPageComponent,
     CompanyPageComponent,
-    CompaniesListComponent
+    CompaniesListComponent,
+    CompanyDetailsComponent
   ],
   providers: [ AuthenticationService, CompanyService ],
   bootstrap: [ AppComponent ]

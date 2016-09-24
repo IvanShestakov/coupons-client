@@ -1,20 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
-//Decided not to export html template to separate file here.
+import { Company } from '../shared/company';
+import { CompanyService } from './company.service';
+
+
 @Component({
-  template: `
-      <div *ngIf="company">
-      <h2>{{company.name}} details!</h2>
-      <div>
-        <label>id: </label>{{company.id}}</div>
-      <div>
-        <label>name: </label>
-        <input [(ngModel)]="company.name" placeholder="name" />
-       </div>
-      <button (click)="goBack()">Back</button>
-      <button (click)="save()">Save</button>
-    </div>
-  `,
+  selector: 'company-details',
+  templateUrl: 'company.details.component.html',
   styleUrls: ['./company.details.component.css']
 })
-export class CompanyDetailsComponent { }
+export class CompanyDetailsComponent implements OnInit {
+  @Input()
+    company: Company;
+
+    constructor( private companyService: CompanyService) { }
+
+        save(company: Company): void {
+        this.companyService.update(company)
+            .then();
+        }
+        cancel(): void {
+        this.companyService.getCompany(this.company.id)
+            .then(company => {
+                () => company;
+            });
+        }
+        ngOnInit(): void {
+          //load company details from server
+          this.companyService.getCompany(this.company.id)
+            .then(company => this.company = company);
+        }
+ }

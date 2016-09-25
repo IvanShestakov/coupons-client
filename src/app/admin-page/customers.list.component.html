@@ -1,0 +1,23 @@
+<ul class="customers">
+  <li *ngFor="let customer of customers" (click)="onSelect(customer)"
+      [class.selected]="customer === selectedCustomer">
+    <span class="badge">{{customer.id}}</span>
+    <span>{{customer.custName}}</span>
+    <button class="delete"
+      (click)="delete(customer); $event.stopPropagation()">x</button>
+  </li>
+
+<div>
+      <h2>Create new Customer</h2>
+        <label>Customer Name: </label>
+          <input [(ngModel)]="newCustomer.custName" placeholder="Customer Name" />
+        <label>Password:</label> 
+          <input type="password" [(ngModel)]="newCustomer.password" />
+        <button (click)="add(newCustomer); newCustomer.custName.value=''">
+        Save
+        </button>
+</div>
+
+<div *ngIf="selectedCustomer">
+  <customer-details [customer]="selectedCustomer"></customer-details>
+</div>

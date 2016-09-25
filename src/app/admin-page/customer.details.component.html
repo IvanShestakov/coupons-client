@@ -1,0 +1,11 @@
+
+    <h2>Customer Details</h2>
+    <div class="customers">
+        <span class="badge">{{customer.id}}</span>
+        <span>{{customer.custName}}</span>
+    <div>
+        <label>password: </label>
+        <input [(ngModel)]="customer.password" placeholder="password" />
+    </div>
+    <button (click)="cancel()">Cancel</button>
+    <button (click)="save(customer)">Save</button>

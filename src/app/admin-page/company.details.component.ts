@@ -17,7 +17,9 @@ export class CompanyDetailsComponent implements OnInit {
 
         save(company: Company): void {
         this.companyService.update(company)
-            .then();
+            .then(company => {
+                () => company;
+            });
         }
         cancel(): void {
         this.companyService.getCompany(this.company.id)

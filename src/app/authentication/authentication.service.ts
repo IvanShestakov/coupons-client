@@ -13,14 +13,14 @@ export class AuthenticationService {
   private logoutPath = 'webapi/logout';
 
   constructor(private http: Http) {
-    this.loggedIn = !!localStorage.getItem('auth_user');
+    this.loggedIn = !!sessionStorage.getItem('auth_user');
   }
 
   login(user: User) {
 
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-
+    
     return this.http
       .post(
       this.serverURL.concat(this.loginPath),
@@ -28,7 +28,9 @@ export class AuthenticationService {
       { headers })
       .map((res) => {
         if (res.status = 204) {
-          localStorage.setItem('auth_user', JSON.stringify({ user }));
+          let id = res.text();
+          sessionStorage.setItem('auth_user', JSON.stringify({ user }));
+          sessionStorage.setItem('userId', id);
           this.loggedIn = true;
           return true;
         }
@@ -41,7 +43,8 @@ export class AuthenticationService {
     .post(
       this.serverURL.concat(this.logoutPath),
       {});
-    localStorage.removeItem('auth_user');
+    sessionStorage.removeItem('auth_user');
+    sessionStorage.removeItem('userId')
     this.loggedIn = false;
   }
 

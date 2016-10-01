@@ -4,6 +4,8 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { routing,
          appRoutingProviders }  from './app.routing';
 import { HttpModule } from '@angular/http';
+//import { DatePicker } from 'ng2-datepicker/ng2-datepicker';
+
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './authentication/login.component';
@@ -17,27 +19,33 @@ import { CompanyDetailsComponent } from './admin-page/company.details.component'
 import { CustomerService } from './admin-page/customer.service';
 import { CustomersListComponent } from './admin-page/customers.list.component';
 import { CustomerDetailsComponent } from './admin-page/customer.details.component';
-
+import { CompanyCouponService } from './company-page/company.coupon.service';
+import { CompanyCouponsListComponent } from './company-page/coupons.list.component';
+import { CouponDetailsComponent } from './company-page/coupon.details.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    //DatePicker,
     routing
   ],
   declarations: [
-    AppComponent,
-    LoginComponent,
+    //DatePicker,
+    CompanyDetailsComponent,
+    CompaniesListComponent,
+    CustomerDetailsComponent,
+    CustomersListComponent,
     AdminPageComponent,
     CustomerPageComponent,
-    CompanyPageComponent,
-    CompaniesListComponent,
-    CompanyDetailsComponent,
-    CustomersListComponent,
-    CustomerDetailsComponent
+    CompanyCouponsListComponent,
+    CouponDetailsComponent,
+    CompanyPageComponent, 
+    LoginComponent,
+    AppComponent
   ],
-  providers: [ AuthenticationService, CompanyService, CustomerService ],
-  bootstrap: [ AppComponent ]
+  providers: [ AuthenticationService, CompanyService, CustomerService, CompanyCouponService ],
+  bootstrap: [ AppComponent]
 })
 export class AppModule { }

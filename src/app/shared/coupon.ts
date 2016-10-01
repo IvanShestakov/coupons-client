@@ -1,11 +1,11 @@
 export class Coupon {
     id: number;
     title: string;
-    startDate: Date;
-    endDate: Date;
+    startDate: string;
+    endDate: string;
     amount: number;
     price: number;
     type: string;
     image: string;
-    description: string;
+    message: string;
 }

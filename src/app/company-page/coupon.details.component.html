@@ -1,0 +1,27 @@
+
+    <h2>Coupon Details</h2>
+    <div class="coupons">
+       
+       <label>Coupon Title: </label>
+          <input [(ngModel)]="coupon.title" placeholder="Coupon Title" />
+        <label>Amount:</label> 
+          <input [(ngModel)]="coupon.amount" />
+          <label>Start Date:</label> 
+          <!--TODO - enable date picker--> 
+          <input [(ngModel)]="coupon.startDate" />
+          <label>End Date:</label>
+          <!--TODO - enable date picker--> 
+          <input [(ngModel)]="coupon.endDate" />
+          <label>Price:</label> 
+          <input [(ngModel)]="coupon.price"/>
+          <label>Type:</label> 
+          <!--TODO - enable type picker according to coupon types--> 
+          <input [(ngModel)]="coupon.type" />
+          <label>Image:</label> 
+          <input [(ngModel)]="coupon.image" />
+          <label>Description:</label> 
+          <!--TODO - change class for extended description editor --> 
+          <input [(ngModel)]="coupon.message" />
+
+    <button (click)="cancel()">Cancel</button>
+    <button (click)="save(coupon)">Save</button>

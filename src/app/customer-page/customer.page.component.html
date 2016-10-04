@@ -1,1 +1,20 @@
 <h2> This is customer page component </h2>
+
+<h3>My purchased coupons</h3>
+<ul class="coupons">
+  <li *ngFor="let coupon of customerCoupons" (click)="onSelect(coupon)"
+      [class.selected]="coupon === selectedCoupon">
+    <span class="badge">{{coupon.id}}</span>
+    <span>{{coupon.title}}</span>
+  </li>
+
+<h3>All published coupons
+<ul class="coupons">
+  <li *ngFor="let coupon of allCoupons" (click)="onSelect(coupon)"
+      [class.selected]="coupon === selectedCoupon">
+    <span class="badge">{{coupon.id}}</span>
+    <span>{{coupon.title}}</span>
+    <!--TODO: Implement logic to prevent second time purchase of the coupon-->
+    <button class="purchase"
+      (click)="purchaseCoupon(coupon); $event.stopPropagation()">Purchase</button>
+  </li>

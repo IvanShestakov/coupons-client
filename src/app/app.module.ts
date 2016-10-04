@@ -22,6 +22,9 @@ import { CustomerDetailsComponent } from './admin-page/customer.details.componen
 import { CompanyCouponService } from './company-page/company.coupon.service';
 import { CompanyCouponsListComponent } from './company-page/coupons.list.component';
 import { CouponDetailsComponent } from './company-page/coupon.details.component';
+import { CustomerCouponService } from './customer-page/customer.coupon.service';
+
+
 
 @NgModule({
   imports: [
@@ -45,7 +48,7 @@ import { CouponDetailsComponent } from './company-page/coupon.details.component'
     LoginComponent,
     AppComponent
   ],
-  providers: [ AuthenticationService, CompanyService, CustomerService, CompanyCouponService ],
+  providers: [ AuthenticationService, CompanyService, CustomerService, CompanyCouponService, CustomerCouponService ],
   bootstrap: [ AppComponent]
 })
 export class AppModule { }

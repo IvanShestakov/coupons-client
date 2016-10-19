@@ -5,7 +5,7 @@ import { routing,
          appRoutingProviders }  from './app.routing';
 import { HttpModule } from '@angular/http';
 //import { DatePicker } from 'ng2-datepicker/ng2-datepicker';
-
+import { AccordionModule, AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './authentication/login.component';
@@ -23,7 +23,7 @@ import { CompanyCouponService } from './company-page/company.coupon.service';
 import { CompanyCouponsListComponent } from './company-page/coupons.list.component';
 import { CouponDetailsComponent } from './company-page/coupon.details.component';
 import { CustomerCouponService } from './customer-page/customer.coupon.service';
-
+import { CouponExpandedComponent } from './customer-page/coupon-expanded.component';
 
 
 @NgModule({
@@ -32,9 +32,12 @@ import { CustomerCouponService } from './customer-page/customer.coupon.service';
     FormsModule,
     HttpModule,
     //DatePicker,
+    AccordionModule,
+    AlertModule,
     routing
   ],
   declarations: [
+    CouponExpandedComponent,
     //DatePicker,
     CompanyDetailsComponent,
     CompaniesListComponent,

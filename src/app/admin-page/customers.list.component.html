@@ -7,17 +7,17 @@
       (click)="delete(customer); $event.stopPropagation()">x</button>
   </li>
 
-<div>
-      <h2>Create new Customer</h2>
-        <label>Customer Name: </label>
-          <input [(ngModel)]="newCustomer.custName" placeholder="Customer Name" />
-        <label>Password:</label> 
-          <input type="password" [(ngModel)]="newCustomer.password" />
+<div class="well">
+      <h4>Create new Customer</h4>
+        <label>Customer Name: </label><br>
+          <input [(ngModel)]="newCustomer.custName" placeholder="Customer Name" /><br>
+        <label>Password:</label> <br>
+          <input type="password" [(ngModel)]="newCustomer.password" /><br>
         <button (click)="add(newCustomer); newCustomer.custName.value=''">
         Save
         </button>
 </div>
 
-<div *ngIf="selectedCustomer">
+<div class="well" *ngIf="selectedCustomer">
   <customer-details [customer]="selectedCustomer"></customer-details>
 </div>

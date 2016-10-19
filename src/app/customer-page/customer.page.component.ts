@@ -3,6 +3,7 @@ import { Component, OnInit} from '@angular/core';
 
 import { Coupon } from '../shared/coupon';
 import { CustomerCouponService } from './customer.coupon.service';
+import { CouponExpandedComponent } from './coupon-expanded.component'
 
 @Component({
   templateUrl: './customer.page.component.html',

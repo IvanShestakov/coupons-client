@@ -7,19 +7,19 @@
       (click)="delete(company); $event.stopPropagation()">x</button>
   </li>
 
-<div>
-      <h2>Create new Company</h2>
-        <label>Company Name: </label>
-          <input [(ngModel)]="newCompany.compName" placeholder="Company Name" />
-        <label>CompanyEmail: </label>
-          <input [(ngModel)]="newCompany.email" placeholder="Company Email" />
-        <label>Password:</label> 
-          <input type="password" [(ngModel)]="newCompany.password" />
+<div class="well">
+      <h4>Create new Company</h4>
+        <label>Company Name: </label><br>
+          <input [(ngModel)]="newCompany.compName" placeholder="Company Name" /><br>
+        <label>CompanyEmail: </label><br>
+          <input [(ngModel)]="newCompany.email" placeholder="Company Email" /><br>
+        <label>Password:</label> <br>
+          <input type="password" [(ngModel)]="newCompany.password" /><br>
         <button (click)="add(newCompany); newCompany.compName.value=''">
         Save
         </button>
 </div>
 
-<div *ngIf="selectedCompany">
+<div class="well" *ngIf="selectedCompany">
   <company-details [company]="selectedCompany"></company-details>
 </div>

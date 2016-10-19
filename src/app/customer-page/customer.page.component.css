@@ -1,4 +1,4 @@
-
+/*
   .selected {
     background-color: #CFD8DC !important;
     color: white;
@@ -16,7 +16,7 @@
     background-color: #EEE;
     margin: .5em;
     padding: .3em 0;
-    height: 1.6em;
+    height: 1.8em;
     border-radius: 4px;
   }
   .coupons li.selected:hover {
@@ -33,7 +33,7 @@
     top: -3px;
   }
   .coupons .badge {
-    width:1.3em;
+    width:1.9em;
     display: inline-block;
     font-size: small;
     color: white;
@@ -65,4 +65,4 @@
     margin-right: .8em;
     background-color: gray !important;
     color:white;
-  }
+  }*/

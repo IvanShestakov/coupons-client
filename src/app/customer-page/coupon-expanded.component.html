@@ -1,16 +1,14 @@
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Start Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{coupon.id}}</td>
-        <td>{{coupon.title}}</td>
-        <td>{{coupon.startDate}}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="media">
+  <div class="media-left">
+    <img src={{coupon.image}} class="media-object" style="width:240px">
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">{{coupon.title}}</h4>
+    <p>{{coupon.message}}</p>
+    <p>{{coupon.startDate}}</p>
+    <p>{{coupon.endDate}}</p>
+    <p>{{coupon.price}}</p>
+    <p>{{coupon.amount}}</p>
+    <p>{{coupon.type}}</p>
+  </div>
+</div>

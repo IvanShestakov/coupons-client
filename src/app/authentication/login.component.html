@@ -1,5 +1,4 @@
 <h2> To proceed please login </h2>
-<div *ngIf="msg" class="msg">{{msg}}</div>
 
 <form (ngSubmit)="onSubmit(user)" #loginForm="ngForm">
     <div class="form-group">
@@ -23,10 +22,8 @@
     </div>
     <div class="form-group">
         <label for="type">Type</label>
-            <select class="form-control" id="type" required
+            <select class="form-control" id="type"
             [(ngModel)]="user.type" name="type" >
-            <!--TODO implement *nFor loop to iterate over user types -->
-            <!--<option *ngFor="let type of types" [value]="t">{{t}}</option>-->
             <option  value="ADMIN" >Admin</option>
             <option  value="COMPANY">Company</option>
             <option  value="CUSTOMER">Customer</option>
@@ -34,4 +31,5 @@
     </div>
     <br>
     <button type="submit" class="btn btn-default" [disabled]="!loginForm.form.valid">Login</button>
+    <alert *ngIf="errMsg" type="warning">{{errMsg}}</alert>
 </form>

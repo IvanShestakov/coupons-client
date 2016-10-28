@@ -4,7 +4,7 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { routing,
          appRoutingProviders }  from './app.routing';
 import { HttpModule } from '@angular/http';
-//import { DatePicker } from 'ng2-datepicker/ng2-datepicker';
+/*import { DatepickerModule } from 'ng2-bootstrap/ng2-bootstrap';*/
 import { AccordionModule, AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { AppComponent } from './app.component';
@@ -31,14 +31,13 @@ import { CouponExpandedComponent } from './customer-page/coupon-expanded.compone
     BrowserModule,
     FormsModule,
     HttpModule,
-    //DatePicker,
+ /*   DatepickerModule,*/
     AccordionModule,
     AlertModule,
     routing
   ],
   declarations: [
     CouponExpandedComponent,
-    //DatePicker,
     CompanyDetailsComponent,
     CompaniesListComponent,
     CustomerDetailsComponent,

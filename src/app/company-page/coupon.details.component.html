@@ -1,27 +1,37 @@
-
-    <h3>Coupon Details</h3>
-    <div class="coupons">
-       
-       <label>Coupon Title: </label>
-          <input [(ngModel)]="coupon.title" placeholder="Coupon Title" />
-        <label>Amount:</label> 
-          <input [(ngModel)]="coupon.amount" />
-          <label>Start Date:</label> 
-          <!--TODO - enable date picker--> 
-          <input [(ngModel)]="coupon.startDate" />
-          <label>End Date:</label>
-          <!--TODO - enable date picker--> 
-          <input [(ngModel)]="coupon.endDate" />
-          <label>Price:</label> 
-          <input [(ngModel)]="coupon.price"/>
-          <label>Type:</label> 
-          <!--TODO - enable type picker according to coupon types--> 
-          <input [(ngModel)]="coupon.type" />
-          <label>Image:</label> 
-          <input [(ngModel)]="coupon.image" />
-          <label>Description:</label> 
-          <!--TODO - change class for extended description editor --> 
-          <input [(ngModel)]="coupon.message" />
-
-    <button (click)="cancel()">Cancel</button>
-    <button (click)="save(coupon)">Save</button>
+<h3>Selected Coupon Details</h3>
+<div class="coupons">
+  <div class="form-group">
+    <label for="title">Coupon Title:</label>
+    <input type="text" class="form-control" id="title" [(ngModel)]="coupon.title" placeholder="Coupon Title" />
+  </div>
+  <div class="form-group">
+    <label for="startDate">Start Date:</label>
+    <input type="text" class="form-control" id="startDate" [(ngModel)]="coupon.startDate" />
+  </div>
+  <div class="form-group">
+    <label for="endDate">End Date:</label>
+    <input type="text" class="form-control" id="endDate" [(ngModel)]="coupon.endDate" />
+  </div>
+  <div class="form-group">
+    <label for="amount">Amount:</label>
+    <input type="text" class="form-control" id="amount" [(ngModel)]="coupon.amount" />
+  </div>
+  <div class="form-group">
+    <label for="price">Price:</label>
+    <input type="text" class="form-control" id="price" [(ngModel)]="coupon.price" />
+  </div>
+  <div class="form-group">
+    <label for="type">Type:</label>
+    <input type="text" class="form-control" id="type" [(ngModel)]="coupon.type" />
+  </div>
+  <div class="form-group">
+    <label for="image">Image:</label>
+    <input type="text" class="form-control" id="image" [(ngModel)]="coupon.image" />
+  </div>
+  <div class="form-group">
+    <label for="message">Description:</label>
+    <textarea rows="3" class="form-control" id="message" [(ngModel)]="coupon.message"></textarea>
+  </div>
+  <button (click)="save(coupon)">Save</button>
+  <button (click)="cancel()">Cancel</button>
+</div>

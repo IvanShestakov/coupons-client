@@ -11,20 +11,20 @@ export class LoginComponent {
 
   user = new User();
   submitted = false;
-  //Debugging
-  msg = ""
-  constructor( private authService: AuthenticationService,
-              private router: Router) {}
+  errMsg = "";
 
-  onSubmit(user: User) { 
-    this.authService.login(this.user).subscribe((result) => {
-      if (result) {
-        this.router.navigate([user.type.toString().toLowerCase()])
-      }
-      this.msg = "Failed to login";
-    });
-   }
+  constructor(private authService: AuthenticationService,
+    private router: Router) { }
 
-  types =  Object.keys(userType);
+  onSubmit(user: User) {
+    //If successfully login to server navigate to appropriate page according to user type.
+    this.authService.login(this.user).subscribe(
+      success => this.router.navigate([user.type.toString().toLowerCase()]),
+      error => this.errMsg = <any>error);
+      //Added this to hide the error message after 3 seconds.
+      setTimeout(() => this.errMsg="", 3000);
+  }
 
- }
+  types = Object.keys(userType);
+
+}

@@ -32,10 +32,9 @@ export class AuthenticationService {
           sessionStorage.setItem('auth_user', JSON.stringify({ user }));
           sessionStorage.setItem('userId', id);
           this.loggedIn = true;
-          return true;
         }
-        else return false;
-      });
+      })
+      .catch(this.handleError);
   }
   
   logout() {
@@ -51,4 +50,20 @@ export class AuthenticationService {
   isLoggedIn() {
     return this.loggedIn;
   }
+
+  private handleError (error: Response | any) {
+  // Sample error handler from Angular documentation website.
+  let errMsg: string;
+  if (error instanceof Response) {
+    const body = error.json() || '';
+    console.log(body);
+    const err = body.error || JSON.stringify(body);
+    console.log(err);
+    errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+  } else {
+    errMsg = error.message ? error.message : error.toString();
+  }
+  console.error(errMsg);
+  return Observable.throw(errMsg);
+}
 }

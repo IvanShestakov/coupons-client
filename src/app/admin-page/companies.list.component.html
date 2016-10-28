@@ -15,7 +15,7 @@
           <input [(ngModel)]="newCompany.email" placeholder="Company Email" /><br>
         <label>Password:</label> <br>
           <input type="password" [(ngModel)]="newCompany.password" /><br>
-        <button (click)="add(newCompany); newCompany.compName.value=''">
+        <button (click)="add(newCompany); newCompany.compName.value='';newCompany.email.value='';newCompany.compName.password='' ">
         Save
         </button>
 </div>

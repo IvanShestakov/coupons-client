@@ -1,39 +1,58 @@
-<ul class="coupons">
-  <li *ngFor="let coupon of coupons" (click)="onSelect(coupon)"
-      [class.selected]="coupon === selectedCoupon">
-    <span class="badge">{{coupon.id}}</span>
-    <span>{{coupon.title}}</span>
-    <button class="delete"
-      (click)="delete(coupon); $event.stopPropagation()">x</button>
-  </li>
+<div class="row">
+    <div class="col-sm-4">
+      <ul class="coupons">
+        <li *ngFor="let coupon of coupons" (click)="onSelect(coupon)" [class.selected]="coupon === selectedCoupon">
+          <span class="badge">{{coupon.id}}</span>
+          <span>{{coupon.title}}</span>
+          <button class="delete" (click)="delete(coupon); $event.stopPropagation()">x</button>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-4">
+      <div *ngIf="selectedCoupon">
+        <coupon-details [coupon]="selectedCoupon"></coupon-details>
+      </div>
+    </div>
 
-<div class="well">
+  <div class="col-sm-4">
+    <div class="well">
       <h3>Publish new Coupon</h3>
-        <label>Coupon Title: </label>
-          <input [(ngModel)]="newCoupon.title" placeholder="Coupon Title" />
-        <label>Amount:</label> 
-          <input [(ngModel)]="newCoupon.amount" />
-          <label>Start Date:</label> 
-          <!--TODO - enable date picker--> 
-          <input [(ngModel)]="newCoupon.startDate" />
-          <label>End Date:</label>
-          <!--TODO - enable date picker--> 
-          <input [(ngModel)]="newCoupon.endDate" />
-          <label>Price:</label> 
-          <input [(ngModel)]="newCoupon.price" />
-          <label>Type:</label> 
-          <!--TODO - enable type picker according to coupon types--> 
-          <input [(ngModel)]="newCoupon.type" />
-          <label>Image:</label> 
-          <input [(ngModel)]="newCoupon.image" />
-          <label>Description:</label> 
-          <!--TODO - change class for extended description editor --> 
-          <input [(ngModel)]="newCoupon.message" />
-        <button (click)="add(newCoupon); newCoupon.title.value=''">
+      <div class="form-group">
+        <label for="title">Coupon Title:</label>
+        <input type="text" class="form-control" id="title" [(ngModel)]="newCoupon.title" placeholder="Coupon Title" />
+      </div>
+      <div class="form-group">
+        <label for="startDate">Start Date:</label>
+        <input type="text" class="form-control" id="startDate" [(ngModel)]="newCoupon.startDate" />
+      </div>
+      <div class="form-group">
+        <label for="endDate">End Date:</label>
+        <input type="text" class="form-control" id="endDate" [(ngModel)]="newCoupon.endDate" />
+      </div>
+      <div class="form-group">
+        <label for="amount">Amount:</label>
+        <input type="text" class="form-control" id="amount" [(ngModel)]="newCoupon.amount" />
+      </div>
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="text" class="form-control" id="price" [(ngModel)]="newCoupon.price" />
+      </div>
+      <div class="form-group">
+        <label for="type">Type:</label>
+        <input type="text" class="form-control" id="type" [(ngModel)]="newCoupon.type" />
+      </div>
+      <div class="form-group">
+        <label for="image">Image:</label>
+        <input type="text" class="form-control" id="image" [(ngModel)]="newCoupon.image" />
+      </div>
+      <div class="form-group">
+        <label for="message">Description:</label>
+        <textarea rows="3" class="form-control" id="message" [(ngModel)]="newCoupon.message"></textarea>
+      </div>
+      <button (click)="add(newCoupon); newCoupon.title.value=''">
         Save
-        </button>
-</div>
+    </button>
+    </div>
+  </div>
 
-<div *ngIf="selectedCoupon">
-  <coupon-details [coupon]="selectedCoupon"></coupon-details>
 </div>
